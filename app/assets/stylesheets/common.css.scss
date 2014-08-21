@@ -1,3 +1,7 @@
+body {
+  font-family: "Arial";
+}
+
 h1 {
   font-family: "Georgia";
   font-size: 1.8em;
@@ -6,35 +10,30 @@ h1 {
   margin: 0;
 }
 h2 {
-  font-family: "Arial";
   font-size: 1.5em;
   line-height: 2em;
   color: #f58229;
-  font-weight: bold;
+  font-weight: 400;
   margin: 0;
 }
 h3{
-  font-family: "Arial"; 
   font-size: 1.17em; 
   line-height: 1.58em;
   color: #333333;
-  font-weight: bold;
+  font-weight: 400;
   margin: 0;
 }
 .copy {
-  font-family: "Arial";
   font-size: 1.17em;
   line-height: 1.58em;
   color: #333333;
 }
 .copy a{
-  font-family: "Arial";
   font-size: 1.17em;
   line-height: 1.58em;
   color: #f58229;
 }
 a.small{
-  font-family: "Arial";
   font-size: 1em;
   color: #f58229;
   text-transform: uppercase;
@@ -45,8 +44,8 @@ fine print: font-family: Arial Regular;font-size: 1em;line-height: 1.17em;color:
 post date: font-family: Arial Regular;font-size: 1em;line-height: 1.17em;color: #999999
 */
 form label {
-  font-family: "Arial Regular";
-  font-size: 1.17em;
+  font-size: 1.0em;
+  /*font-size: 1.17em;*/
   color: #333333;
   font-weight: normal;
 }

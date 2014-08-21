@@ -47,11 +47,11 @@ h1 My Contacts
 
       = form_tag "/" do
         .form-group
-          = label_tag :first_name
+          = label_tag :first_name, "First Name"
           = text_field_tag :first_name, "", class: "form-control"
 
         .form-group
-          = label_tag :last_name
+          = label_tag :last_name, "Last Name"
           = text_field_tag :last_name, "", class: "form-control"
 
         .form-group
