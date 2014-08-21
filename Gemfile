@@ -18,6 +18,7 @@ gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'faker'
 gem 'fontawesome-rails'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 group :development do
   gem 'better_errors'

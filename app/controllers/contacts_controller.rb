@@ -1,6 +1,10 @@
 class ContactsController < ApplicationController
   before_action :find_resource, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @contacts = Contact.page(params[:page]).per(10)
+  end
+
   def new
     @contact = Contact.new
   end
@@ -12,10 +16,6 @@ class ContactsController < ApplicationController
     else
       redirect_to :back, alert: "Unable to create contact"
     end
-  end
-
-  def index
-    @contacts = Contact.all
   end
 
   private

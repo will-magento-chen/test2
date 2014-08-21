@@ -11,6 +11,7 @@ h1 My Contacts
       .col-sm-9
         a.btn.btn-default Send email
         a.btn.btn-default Export contacts
+    .text-right= page_entries_info @contacts
     table.table.table-striped
       tbody
         tr
@@ -28,11 +29,16 @@ h1 My Contacts
             td= link_to contact.last_name, contact
             td Contact
             td
-              p= contact.mobile_phone
+              p= contact.company
+              p= contact.mobile_phone.nil? ? contact.alternate_phone : contact.mobile_phone
               p.copy
                 a
                   small= contact.email
               p= contact.full_address
+    .text-right= page_entries_info @contacts
+    .pull-right
+      = paginate @contacts
+
   .col-sm-3.search-panel
     .form-group
       = link_to "Create new contact", new_contact_path, class: "btn btn-primary btn-streched"
