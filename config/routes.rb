@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "visitors#index"
+  root to: "contacts#index"
 
   resources :contacts
 end
