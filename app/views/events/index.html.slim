@@ -12,26 +12,27 @@ h1 My Events
         a.btn.btn-default Send email
         a.btn.btn-default Export events
     .text-right= page_entries_info @events
-    table.table.table-striped
-      tbody
-        tr
-          td
-          td Event Name
-          td Type
-          td Date & Time
-          td Affiliate Code
-
-        - @events.each do |event|
+    .table-responsive
+      table.table.table-striped
+        tbody
           tr
             td
-              input type="checkbox" ng-checked="select_all == true"
-            td= link_to event.name, event
-            td= event.event_type.try(:name)
-            td
-              p Start: #{event.start_date}, #{event.start_time}
-              p End: #{event.end_date}, #{event.end_time}
-            td
-              a= event.affiliate_code
+            td Event Name
+            td Type
+            td Date & Time
+            td Affiliate Code
+
+          - @events.each do |event|
+            tr
+              td
+                input type="checkbox" ng-checked="select_all == true"
+              td= link_to event.name, event
+              td= event.event_type.try(:name)
+              td
+                p Start: #{event.start_date}, #{event.start_time}
+                p End: #{event.end_date}, #{event.end_time}
+              td
+                a= event.affiliate_code
     .text-right= page_entries_info @events
     .pull-right
       = paginate @events

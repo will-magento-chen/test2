@@ -8,6 +8,9 @@ $brand-primary: #cc0033;
 $brand-success: #96c926;
 $brand-warning: #f58229;
 $container-large-desktop: 1024px;
+$navbar-inverse-color: $brand-primary;
+$navbar-inverse-bg: $brand-primary;
+$navbar-inverse-border: $brand-primary;
 
 $table-bg-accent: #eee;
 
@@ -124,4 +127,12 @@ abbr[title], abbr[data-original-title] {
 
 a {
   color: $brand-warning;
+}
+
+.navbar-fixed-top {
+  background: $brand-primary;
+  border-color: $brand-primary;
+}
+.navbar-inverse .navbar-brand {
+  color: white !important;
 }

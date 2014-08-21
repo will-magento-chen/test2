@@ -2,12 +2,12 @@ class Event < ActiveRecord::Base
   belongs_to :event_type
   before_create :generate_affiliate_code
 
-  belongs_to :host, foreign_key: 'host', class_name: 'Contact'
+  belongs_to :host, foreign_key: 'host_id', class_name: 'Contact'
 
   def full_address
     "#{self.city}, #{self.state}, #{self.country}"
   end
-  
+
   protected
 
   def generate_affiliate_code

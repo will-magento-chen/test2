@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :name
       t.boolean :is_public
       t.string :hosting_type
-      t.integer :host
+      t.integer :host_id
       t.string :location_type
       t.string :address1
       t.string :address2

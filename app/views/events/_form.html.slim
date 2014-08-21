@@ -18,7 +18,7 @@ div ng-init="hosting_type='customer'"
 label ng-if="hosting_type == 'myself'" Host Name
 .row ng-if="hosting_type == 'myself'"
   .col-sm-6
-    = f.collection_select :host, Contact.all, :id, :full_name, {}, { class: "form-control" }
+    = f.collection_select :host_id, Contact.all, :id, :full_name, {}, { class: "form-control" }
   .pull-left
     span or &nbsp;
     a.btn.btn-default Add New Contact
