@@ -4,6 +4,6 @@
 
 $ ->
   $(".dateonly").datetimepicker({
-    format: 'D M j, Y',
+    format: 'Y-m-d',
     timepicker: false
   })

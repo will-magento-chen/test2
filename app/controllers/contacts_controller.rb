@@ -18,6 +18,14 @@ class ContactsController < ApplicationController
     end
   end
 
+  def update
+    if @contact.update_attributes(contact_params)
+      redirect_to contacts_path, notice: "Contact has been updated successfully"
+    else
+      redirect_to :back, alert: "Unable to update contact"
+    end
+  end
+
   private
 
   def contact_params

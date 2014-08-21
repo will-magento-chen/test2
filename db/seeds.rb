@@ -1,3 +1,4 @@
+puts "Create Contacts"
 20.times do
   Contact.create({
                    first_name: Faker::Name.first_name,
@@ -12,4 +13,9 @@
                    mobile_phone: Faker::PhoneNumber.cell_phone
 
                 })
+end
+
+puts "Create Event types"
+['Barefoot Party', 'Fundraiser', 'Other'].each do |type|
+  EventType.create(name: type)
 end

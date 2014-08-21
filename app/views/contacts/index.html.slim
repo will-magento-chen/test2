@@ -6,7 +6,7 @@ h1 My Contacts
     .row.form-group
       .col-sm-2
         label.control-label
-          input type="checkbox" style="margin-top: 10px;"
+          input type="checkbox" ng-model="select_all" style="margin-top: 10px;"
           | Select All
       .col-sm-9
         a.btn.btn-default Send email
@@ -24,7 +24,7 @@ h1 My Contacts
         - @contacts.each do |contact|
           tr
             td
-              input type="checkbox"
+              input type="checkbox" ng-checked="select_all == true"
             td= link_to contact.first_name, contact
             td= link_to contact.last_name, contact
             td Contact
@@ -45,7 +45,7 @@ h1 My Contacts
     .well
       h2 Search Contacts
 
-      = form_tag "/" do
+      = form_tag contacts_path, method: :get do
         .form-group
           = label_tag :first_name, "First Name"
           = text_field_tag :first_name, "", class: "form-control"
@@ -74,7 +74,14 @@ h1 My Contacts
           = label_tag :city, "City/Town"
           = text_field_tag :city, "", class: "form-control"
 
-        button.btn.btn-primary.btn-sm Search Contacts
+        .form-group
+          button.btn.btn-primary.btn-sm Search Contacts
 
-      br
       h2 Quick Search
+      p
+        b View All
+        a.small &raquo;
+      p.text-gray Past Customers
+      p.text-gray Past Hours
+      p.text-gray Past Customers
+
