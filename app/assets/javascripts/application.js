@@ -13,5 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require angular
+//= require angular-resource
+//= require angular-route
+//= require angular-sanitize
+//= require underscore.min
 //= require jquery.datetimepicker
+//= require_directory ./plugins
 //= require_tree .

@@ -18,6 +18,7 @@ gem 'thin'
 gem 'faker'
 gem 'fontawesome-rails'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'angularjs-rails'
 
 group :development do
   gem 'better_errors'
