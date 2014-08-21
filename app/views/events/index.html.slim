@@ -1,0 +1,50 @@
+h1 My Events
+
+.row
+  .col-sm-9
+    h2 All Events
+    .row.form-group
+      .col-sm-2
+        label.control-label
+          input type="checkbox" ng-model="select_all" style="margin-top: 10px;"
+          | Select All
+      .col-sm-9
+        a.btn.btn-default Send email
+        a.btn.btn-default Export events
+    .text-right= page_entries_info @events
+    table.table.table-striped
+      tbody
+        tr
+          td
+          td Event Name
+          td Type
+          td Date & Time
+          td Affiliate Code
+
+        - @events.each do |event|
+          tr
+            td
+              input type="checkbox" ng-checked="select_all == true"
+            td= link_to event.name, event
+            td= event.event_type.try(:name)
+            td
+              p Start: #{event.start_date}, #{event.start_time}
+              p End: #{event.end_date}, #{event.end_time}
+            td
+              a= event.affiliate_code
+    .text-right= page_entries_info @events
+    .pull-right
+      = paginate @events
+
+  .col-sm-3.search-panel
+    .form-group
+      = link_to "Create new event", new_event_path, class: "btn btn-primary btn-streched"
+    .well
+      h2 Quick Search
+      p
+        b View All
+        a.small &raquo;
+      p.text-gray Past Customers
+      p.text-gray Past Hours
+      p.text-gray Past Customers
+

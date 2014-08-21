@@ -1,0 +1,10 @@
+.row
+  .col-sm-9
+    h1 Edit an Event
+    = simple_form_for @event, 
+                      defaults: { wrapper_html: { class: "col-sm-6" }, input_html: { class: "form-control" }}, 
+                      input_html: { class: "form-horizontal" } do |f|
+      = render "form", f: f
+
+      = link_to "Cancel", events_path, class: "btn btn-default"
+      = f.submit "Edit event", class: "btn btn-primary"

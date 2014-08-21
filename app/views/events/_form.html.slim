@@ -1,0 +1,59 @@
+h2 Event Details
+.row
+  = f.input :event_type_id, collection: EventType.all, required: true, label: "Event Type"
+  = f.input :name, required: true, label: "Event Name"
+label.control-label
+  = f.check_box :is_public
+  | This is a public event (it will be displayed on your market place).
+
+h2 Host Information
+div ng-init="hosting_type='customer'"
+  label.control-label
+    = f.radio_button :hosting_type, "customer", "ng-model"=>"hosting_type"
+    | A customer is hosting this event
+.form-group
+  label.control-label
+    = f.radio_button :hosting_type, "myself", "ng-model"=>"hosting_type"
+    | I am hosting this event
+label ng-if="hosting_type == 'myself'" Host Name
+.row ng-if="hosting_type == 'myself'"
+  .col-sm-6
+    = f.collection_select :host, Contact.all, :id, :full_name, {}, { class: "form-control" }
+  .pull-left
+    span or &nbsp;
+    a.btn.btn-default Add New Contact
+
+h2 Location
+div ng-init="location_type='customer'"
+  label.control-label
+    = f.radio_button :location_type, "customer", "ng-model"=>"location_type"
+    | Same as Host Address
+.form-group
+  label.control-label
+    = f.radio_button :location_type, "", "ng-model"=>"location_type"
+    | Specify New Location
+.row ng-if="location_type!='customer'"
+  = f.input :address1
+  = f.input :address2
+  = f.input :country, priority: [ "United States" ], collection: [ "United States", "United Kingdom", "New Zealand"]
+  = f.input :state
+  = f.input :city
+  = f.input :zipcode
+
+h2 Date and Time
+.row
+  .col-sm-4
+    = f.label :start_date
+    = f.text_field :start_date, class: "dateonly form-control"
+  .col-sm-3
+    = f.label :start_time
+    = f.text_field :start_time, class: "timepicker form-control"
+.row.form-group
+  .col-sm-4
+    = f.label :end_date
+    = f.text_field :end_date, class: "dateonly form-control"
+  .col-sm-3
+    = f.label :end_time
+    = f.text_field :end_time, class: "timepicker form-control"
+
+

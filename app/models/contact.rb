@@ -1,5 +1,6 @@
 class Contact < ActiveRecord::Base
-
+  has_many :hosts, foreign_key: 'host'
+  
   def full_address
     "#{self.city}, #{self.state}, #{self.country}"
   end

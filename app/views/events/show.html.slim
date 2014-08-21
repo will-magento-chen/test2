@@ -1,0 +1,58 @@
+.show-page
+  = link_to "&raquo; Back to my Events", events_path, class: "small"
+
+  .row
+    .col-sm-9
+      .title
+        h1 = @event.name
+        .row
+          .col-sm-4
+            b Type: 
+            span= @event.event_type.try(:name)
+          .col-sm-4
+            b Affiliate Code
+            span= @event.affiliate_code
+          .pull-right
+            = link_to "Edit event", edit_event_path(@event), class: "btn btn-sm btn-primary"
+            = link_to "Delete event", event_path(@event), class: "btn btn-sm btn-default", confirm: "Are you sure?", data: { method: :delete }
+      .row
+        .col-sm-8
+          h2 Host Information
+          .form-group
+            b Host Name
+            p
+              a= @event.host.full_name
+          .form-group
+            b Email Address
+            p= @event.host.email
+          .form-group
+            b Mobile phone
+            p= @event.host.mobile_phone
+          .form-group
+            b Event Location
+            p= @event.full_address
+          h2 Date and Time
+          .form-group
+            p
+              b Start :
+              span #{@event.start_date}, #{@event.start_time}
+            p
+              b End :
+              span #{@event.end_date}, #{@event.end_time}
+        .col-sm-4
+          br
+          = image_tag "missing.jpg"
+      hr
+      .row
+        .col-sm-6
+          .form-group
+            label Notes
+            textarea.form-control rows=3 name="note"
+          a.btn.btn-primary Add note
+        .col-sm-6
+          h2 Order Summary
+          p Free Gift Credit(FGC): $20.00
+          p Qualified Host Gifts(60% off current host special): 3
+
+      hr
+      h2 Previous Notes
