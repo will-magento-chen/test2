@@ -1,0 +1,54 @@
+h2 Account Details
+.row
+  = f.input :first_name, required: true
+  = f.input :last_name, required: true
+  = f.input :email
+  = f.input :company
+h2 Contact Info
+.row
+  = f.input :address1
+  = f.input :address2
+  = f.input :country, priority: [ "United States" ], collection: [ "United States", "United Kingdom", "New Zealand"]
+  = f.input :state
+  = f.input :city
+  = f.input :zipcode
+  = f.input :mobile_phone
+  = f.input :alternate_phone
+h2 Children
+p Send birthday wishes and/or custom book and gift suggestions for the children in your contact life
+.row
+  .col-sm-4
+    label Child's Name
+    input.form-control type="text"
+  .col-sm-3
+    label Child's Birthday
+    input.dateonly.form-control type="text"
+  .col-sm-2
+    label Gender
+    input.form-control type="text"
+  .col-sm-3
+    label Relationship
+    input.form-control type="text"
+.row.form-group
+  .col-sm-6
+    h2 Interested in
+    .form-group
+      label.control-label
+        input type="checkbox"
+        | Buying Barefoot Books & Gifts
+      label.control-label
+        input type="checkbox"
+        | Hosting a barefoot event
+      label.control-label
+        input type="checkbox"
+        span Joining as an Ambassador to start a business
+    .form-group
+      label Notes
+      textarea.form-control rows=3 name="note"
+    a.btn.btn-primary Add note
+  .col-sm-6
+    h2 Email Sign-up
+    label
+      input type="checkbox" checked="checked"
+      | This customer wishes to recieve emails from the Barefoot Books home office
+
