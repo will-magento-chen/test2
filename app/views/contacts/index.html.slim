@@ -1,0 +1,74 @@
+h1 My Contacts
+
+.row
+  .col-sm-9
+    h2 All Contacts
+    .row.form-group
+      .col-sm-2
+        label.control-label
+          input type="checkbox" style="margin-top: 10px;"
+          | Select All
+      .col-sm-9
+        a.btn.btn-default Send email
+        a.btn.btn-default Export contacts
+    table.table.table-striped
+      tbody
+        tr
+          td
+          td First Name
+          td Last Name
+          td Type
+          td Contact Info
+
+        - @contacts.each do |contact|
+          tr
+            td
+              input type="checkbox"
+            td= link_to contact.first_name, contact
+            td= link_to contact.last_name, contact
+            td Contact
+            td
+              p= contact.mobile_phone
+              p.copy
+                a
+                  small= contact.email
+              p= contact.full_address
+  .col-sm-3.search-panel
+    .form-group
+      = link_to "Create new contact", new_contact_path, class: "btn btn-primary btn-streched"
+    .well
+      h2 Search Contacts
+
+      = form_tag "/" do
+        .form-group
+          = label_tag :first_name
+          = text_field_tag :first_name, "", class: "form-control"
+
+        .form-group
+          = label_tag :last_name
+          = text_field_tag :last_name, "", class: "form-control"
+
+        .form-group
+          = label_tag :company, "Company Name"
+          = text_field_tag :company, "", class: "form-control"
+
+        .form-group
+          = label_tag :member_type
+          = text_field_tag :member_type, "", class: "form-control"
+
+        .form-group
+          = label_tag :country
+          = text_field_tag :country, "", class: "form-control"
+
+        .form-group
+          = label_tag :state, "State/Country/Province"
+          = text_field_tag :state, "", class: "form-control"
+
+        .form-group
+          = label_tag :city, "City/Town"
+          = text_field_tag :city, "", class: "form-control"
+
+        button.btn.btn-primary.btn-sm Search Contacts
+
+      br
+      h2 Quick Search

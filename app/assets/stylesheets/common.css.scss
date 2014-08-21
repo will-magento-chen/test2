@@ -1,0 +1,104 @@
+h1 {
+  font-family: "Georgia";
+  font-size: 1.8em;
+  line-height: 2.3em;
+  color: #666;
+  margin: 0;
+}
+h2 {
+  font-family: "Arial";
+  font-size: 1.5em;
+  line-height: 2em;
+  color: #f58229;
+  font-weight: bold;
+  margin: 0;
+}
+h3{
+  font-family: "Arial"; 
+  font-size: 1.17em; 
+  line-height: 1.58em;
+  color: #333333;
+  font-weight: bold;
+  margin: 0;
+}
+.copy {
+  font-family: "Arial";
+  font-size: 1.17em;
+  line-height: 1.58em;
+  color: #333333;
+}
+.copy a{
+  font-family: "Arial";
+  font-size: 1.17em;
+  line-height: 1.58em;
+  color: #f58229;
+}
+a.small{
+  font-family: "Arial";
+  font-size: 1em;
+  color: #f58229;
+  text-transform: uppercase;
+}
+
+/*
+fine print: font-family: Arial Regular;font-size: 1em;line-height: 1.17em;color: #333333
+post date: font-family: Arial Regular;font-size: 1em;line-height: 1.17em;color: #999999
+*/
+form label {
+  font-family: "Arial Regular";
+  font-size: 1.17em;
+  color: #333333;
+  font-weight: normal;
+}
+.form-control {
+  stroke: 1px all around;
+  stroke-color: #eee;
+}
+
+form .control-group {
+  margin-bottom: 10px;
+}
+
+.control-label {
+  input {
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+}
+
+.well {
+  padding-top: 0px;
+
+}
+
+.search-panel {
+  padding-left: 0px;
+  .well {
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+.show-page {
+  padding-top: 20px;
+  .title {
+    margin-top: 10px;
+    border-top: 1px dotted #eee;
+    border-bottom: 1px dotted #eee;
+    h1 {
+      line-height: 1.4em;
+    }
+  }
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px dotted #eeeeee;
+}

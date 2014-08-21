@@ -1,16 +1,29 @@
 // import the CSS framework
 @import "bootstrap-sprockets";
+
+$gray-dark: #333;
+$gray: #666;
+$gray-light: #999;
+$brand-primary: #cc0033;
+$brand-success: #96c926;
+$brand-warning: #f58229;
+$container-large-desktop: 1024px;
+
+$table-bg-accent: #eee;
+
+
 @import "bootstrap";
 
 // make all images responsive by default
 img {
   @extend .img-responsive;
   margin: 0 auto;
-  }
+}
+
 // override for the 'Home' navigation link
 .navbar-brand {
-  font-size: inherit;
-  }
+  font-size: 1.7em;
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -18,29 +31,87 @@ img {
 .column {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
 .form {
   @extend .col-md-6;
-  }
+}
 .form-centered {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
 .submit {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-lg;
-  }
+}
+
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
-  width: 100%;
   margin-top: 51px; // accommodate the navbar
-  }
+  background: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 section {
   @extend .row;
   margin-top: 20px;
-  }
+}
+
+body {
+  background: #eee;
+}
+abbr[title], abbr[data-original-title] {
+  color: red;
+}
+
+.btn {
+  margin-right: 5px;
+}
+
+.btn-default {
+  color: #f58229;
+}
+
+.text-primary {
+  color: $brand-primary;
+}
+
+.text-danger {
+  color: $brand-primary;
+}
+
+.text-warning {
+  color: $brand-warning;
+}
+
+.text-success {
+  color: $brand-success;
+}
+/*
+.btn-dark-red {
+  background-color: #bf0222;
+}
+*/
+.btn-dark-gray {
+  background-color: $gray-darker;
+}
+
+.btn-mid-gray {
+  background-color: $gray-dark;
+}
+
+.btn-light-gray {
+  background-color: $gray;
+}
+
+.btn-streched {
+  width: 100%;
+}
+
+a {
+  color: $brand-warning;
+}

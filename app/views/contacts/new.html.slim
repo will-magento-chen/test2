@@ -1,0 +1,31 @@
+.row
+  .col-sm-9
+    h1 Create New Contact
+    = simple_form_for @contact, 
+                      defaults: { wrapper_html: { class: "col-sm-6" }, input_html: { class: "form-control" }}, 
+                      input_html: { class: "form-horizontal" } do |f|
+      h2 Account Details
+      .row
+        = f.input :first_name, required: true
+        = f.input :last_name, required: true
+        = f.input :email
+        = f.input :company
+      h2 Contact Info
+      .row
+        = f.input :address1
+        = f.input :address2
+        = f.input :country, priority: [ "United States" ], collection: [ "United States", "United Kingdom", "New Zealand"]
+        = f.input :state
+        = f.input :city
+        = f.input :zipcode
+        = f.input :mobile_phone
+        = f.input :alternate_phone
+      h2 Children
+      p Send birthday wishes and/or custom book and gift suggestions for the children in your contact life
+      .row
+        .col-sm-6
+          h2 Interested in
+        .col-sm-6
+          h2 Email Sign-up
+      = link_to "Cancel", contacts_path, class: "btn btn-default"
+      = f.submit "Create Contact", class: "btn btn-primary"

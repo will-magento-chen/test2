@@ -1,0 +1,69 @@
+.show-page
+  = link_to "<< Back to my contacts", contacts_path, class: "small"
+
+  .row
+    .col-sm-8
+      .title
+        h1 = @contact.full_name
+        .row
+          .col-sm-2
+            b Type: 
+            span Host
+          .col-sm-4
+            b Source: 
+            span Ambassador Contact
+          .pull-right
+            = link_to "Edit Contact", edit_contact_path(@contact), class: "btn btn-sm btn-primary"
+            = link_to "Delete Contact", contact_path(@contact), class: "btn btn-sm btn-default", confirm: "Are you sure?", data: { method: :delete }
+      .row
+        .col-sm-6
+          h2 Contact Info
+          .form-group
+            b Email Address
+            p
+              a= @contact.email
+          .form-group
+            b Mobile Phone
+            p= @contact.mobile_phone
+          .form-group
+            b Mailing Address
+            p= @contact.full_address
+
+        .col-sm-6
+          h2 Children
+          p
+            b Name: 
+            = @contact.full_name
+          p
+            b Birthday: 
+            | 1988-02-02
+          p
+            b Gender: 
+            | Female
+          p
+            b Relationship: 
+            | Daughter
+
+          h2 Interested in...
+          p
+            i.glyphicon.glyphicon-ok.text-warning
+            span Hosting a barefoot event
+          p.form-group
+            i.glyphicon.glyphicon-ok.text-warning
+            span Joining as a Ambassador to start a business
+
+          p
+            b Email Sign-up 
+          i.glyphicon.glyphicon-ok.text-warning
+          | Opted in to recieve email from home office
+      hr
+      .row
+        .col-sm-6
+          .form-group
+            label Notes
+            textarea.form-control name="note"
+          a.btn.btn-primary Add note
+        .col-sm-6
+          h2 Available Credits
+      hr
+      h2 Previous Notes
