@@ -25,7 +25,19 @@
       .row
         .col-sm-6
           h2 Interested in
+          label
+            input type="checkbox"
+            | Buying Barefoot Books & Gifts
+          label
+            input type="checkbox"
+            | Hosting a barefoot event
+          label
+            input type="checkbox"
+            | Joining as an Ambassador to start a business
         .col-sm-6
           h2 Email Sign-up
+          input type="checkbox" checked="checked"
+          | This customer wishes to recieve emails from the Barefoot Books home office
+      br
       = link_to "Cancel", contacts_path, class: "btn btn-default"
       = f.submit "Create Contact", class: "btn btn-primary"
