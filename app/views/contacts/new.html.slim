@@ -23,21 +23,40 @@
       h2 Children
       p Send birthday wishes and/or custom book and gift suggestions for the children in your contact life
       .row
+        .col-sm-4
+          label Child's Name
+          input.form-control type="text"
+        .col-sm-3
+          label Child's Birthday
+          input.dateonly.form-control type="text"
+        .col-sm-2
+          label Gender
+          input.form-control type="text"
+        .col-sm-3
+          label Relationship
+          input.form-control type="text"
+      .row.form-group
         .col-sm-6
           h2 Interested in
-          label
-            input type="checkbox"
-            | Buying Barefoot Books & Gifts
-          label
-            input type="checkbox"
-            | Hosting a barefoot event
-          label
-            input type="checkbox"
-            | Joining as an Ambassador to start a business
+          .form-group
+            label.control-label
+              input type="checkbox"
+              | Buying Barefoot Books & Gifts
+            label.control-label
+              input type="checkbox"
+              | Hosting a barefoot event
+            label.control-label
+              input type="checkbox"
+              span Joining as an Ambassador to start a business
+          .form-group
+            label Notes
+            textarea.form-control rows=3 name="note"
+          a.btn.btn-primary Add note
         .col-sm-6
           h2 Email Sign-up
-          input type="checkbox" checked="checked"
-          | This customer wishes to recieve emails from the Barefoot Books home office
-      br
+          label
+            input type="checkbox" checked="checked"
+            | This customer wishes to recieve emails from the Barefoot Books home office
+
       = link_to "Cancel", contacts_path, class: "btn btn-default"
       = f.submit "Create Contact", class: "btn btn-primary"
