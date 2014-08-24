@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @contact.country = 'US'
+    @contact.children.build
   end
 
   def create
@@ -30,7 +31,9 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit!
+    params.require(:contact)
+          .permit(:first_name, :last_name, :email, :company, :address1, :address2, :country, :state,:city, :zipcode,
+                  :mobile_phone, :alternate_phone, children_attributes: [:name, :birthday, :gender, :relationship])
   end
 
   def find_resource

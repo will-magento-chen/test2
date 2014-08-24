@@ -19,18 +19,20 @@ h2 Contact Info
 h2 Children
 p Send birthday wishes and/or custom book and gift suggestions for the children in your contact life
 .row
-  .col-sm-4
-    label Child's Name
-    input.form-control type="text"
-  .col-sm-3
-    label Child's Birthday
-    input.dateonly.form-control type="text"
-  .col-sm-2
-    label Gender
-    input.form-control type="text"
-  .col-sm-3
-    label Relationship
-    input.form-control type="text"
+  = f.fields_for :children, @contact.children do |c|
+    .col-sm-4
+      = c.label :name, "Child's Name"
+      = c.text_field :name, class: 'form-control'
+    .col-sm-3
+      = c.label :birthday, "Child's Birthday"
+      = c.text_field :birthday, class: 'dateonly form-control'
+    .col-sm-2
+      = c.label :gender
+      = c.select :gender, %w[Boy Girl], {}, class: 'form-control'
+    .col-sm-3
+      = c.label :relationship
+      = c.select :relationship, %w[Son/Daughter Grandson/Granddaughter Niece/Nephew Other], {}, class: 'form-control'
+
 .row.form-group
   .col-sm-6
     h2 Interested in

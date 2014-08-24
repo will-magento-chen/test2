@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20140821183733) do
 
   create_table "children", force: true do |t|
+    t.integer  "contact_id"
     t.string   "name"
     t.datetime "birthday"
     t.string   "gender"
