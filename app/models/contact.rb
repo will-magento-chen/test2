@@ -1,8 +1,10 @@
 class Contact < ActiveRecord::Base
   has_many :hosts, foreign_key: 'host_id'
-  has_many :children, class_name: 'Child'
+  has_many :children, dependent: :destroy
 
-  accepts_nested_attributes_for :children
+  accepts_nested_attributes_for :children, allow_destroy: true
+
+  validates_presence_of :first_name, :last_name, :children
 
   def full_address
     "#{self.city}, #{self.state}, #{self.country}"

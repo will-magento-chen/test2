@@ -8,7 +8,10 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @contact.country = 'US'
-    @contact.children.build
+  end
+
+  def edit
+    @contact.children.build if @contact.children.empty?
   end
 
   def create
@@ -16,7 +19,7 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to contacts_path, notice: "Contact has been created successfully"
     else
-      redirect_to :back, alert: "Unable to create contact"
+      redirect_to :back, alert: @contact.errors.full_messages
     end
   end
 
@@ -24,7 +27,7 @@ class ContactsController < ApplicationController
     if @contact.update_attributes(contact_params)
       redirect_to contacts_path, notice: "Contact has been updated successfully"
     else
-      redirect_to :back, alert: "Unable to update contact"
+      render :edit
     end
   end
 
@@ -32,8 +35,9 @@ class ContactsController < ApplicationController
 
   def contact_params
     params.require(:contact)
-          .permit(:first_name, :last_name, :email, :company, :address1, :address2, :country, :state,:city, :zipcode,
-                  :mobile_phone, :alternate_phone, children_attributes: [:name, :birthday, :gender, :relationship])
+          .permit(:first_name, :last_name, :email, :company, :address1, :address2, :country, :state,
+                  :city, :zipcode, :mobile_phone, :alternate_phone,
+                  children_attributes: [:id, :name, :birthday, :gender, :relationship, :_destroy])
   end
 
   def find_resource
