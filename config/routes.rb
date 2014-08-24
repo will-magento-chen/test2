@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resources :contacts
   resources :events
+
+  get '/subregion_options' => 'country#subregion_select'
 end

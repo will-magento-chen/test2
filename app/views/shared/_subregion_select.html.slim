@@ -1,0 +1,22 @@
+#state_wrapper
+  - parent_region ||= params[:parent_region]
+  - object ||= params[:object].to_sym
+  - country = Carmen::Country.coded(parent_region)
+  - if country.nil?
+    em Please select a country above
+  - elsif country.subregions?
+    = subregion_select(object, :state, parent_region, {}, class: 'form-control')
+  - else
+    = text_field(object, :state, class: 'form-control')
+    = hidden_field_tag :object, object
+coffee:
+  $ ->
+    $('select.country-select').on 'change', (event) ->
+      select_wrapper = $('#state_wrapper')
+
+      $('select', select_wrapper).attr('disabled', true)
+
+      country_code = $(this).val()
+      object = $('#object').val()
+      url = "/subregion_options?parent_region=#{country_code}&object=#{object}"
+      select_wrapper.load(url)

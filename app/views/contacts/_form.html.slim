@@ -8,8 +8,10 @@ h2 Contact Info
 .row
   = f.input :address1
   = f.input :address2
-  = f.input :country, priority: [ "United States" ], collection: [ "United States", "United Kingdom", "New Zealand"]
-  = f.input :state
+  = f.input :country, collection: wishlist_countries, label_method: :name, value_method: :code, selected: 'US', input_html: { class: 'country-select form-control'}
+  .col-sm-6.control-group
+    = f.label :state
+    = render partial: 'shared/subregion_select', locals: { object: :contact, parent_region: f.object.country }
   = f.input :city
   = f.input :zipcode
   = f.input :mobile_phone
@@ -51,4 +53,3 @@ p Send birthday wishes and/or custom book and gift suggestions for the children 
     label
       input type="checkbox" checked="checked"
       | This customer wishes to recieve emails from the Barefoot Books home office
-
