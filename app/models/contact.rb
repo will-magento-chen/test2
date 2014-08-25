@@ -16,8 +16,28 @@ class Contact < ActiveRecord::Base
   scope :by_city, -> city { where(city: city) }
   # scope :active, -> where { where(active: true) }
 
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |contact|
+        csv << contact.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   def full_address
-    "#{self.city}, #{self.state}, #{self.country}"
+    country = Carmen::Country.coded(self.country)
+    if country.nil?
+      country = self.country
+    else
+      if country.subregions?
+        state = country.subregions.coded(self.state).try(:name)
+      end
+      country = country.name
+    end
+
+    state ||= self.state
+    "#{self.city}, #{state}, #{country}"
   end
 
   def full_name

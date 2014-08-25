@@ -1,0 +1,23 @@
+table
+  tbody
+    tr
+      td
+      td First Name
+      td Last Name
+      td Type
+      td Contact Info
+
+    - @contacts.each do |contact|
+      tr
+        td
+          input type="checkbox" ng-checked="select_all == true"
+        td= link_to contact.first_name, contact
+        td= link_to contact.last_name, contact
+        td Contact
+        td
+          p= contact.company
+          p= contact.mobile_phone.nil? ? contact.alternate_phone : contact.mobile_phone
+          p.copy
+            a
+              small= contact.email
+          p= contact.full_address

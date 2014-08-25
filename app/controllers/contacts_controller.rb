@@ -4,6 +4,10 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = apply_scopes(Contact).page(params[:page]).per(10)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @contacts.to_csv }
+    end
   end
 
   def new
