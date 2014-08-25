@@ -26,6 +26,11 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event.destroy
+    redirect_to events_path, notice: "Event has been deleted successfully."
+  end
+
   private
 
   def event_params
