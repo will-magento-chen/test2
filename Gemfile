@@ -20,6 +20,10 @@ gem 'fontawesome-rails'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'angularjs-rails'
 gem 'carmen-rails'
+gem 'versionist'
+gem 'active_model_serializers'
+gem 'has_scope'
+gem 'sentient_user' #provides for intelligent user stamping, see: https://github.com/bokmann/sentient_user
 
 group :development do
   gem 'better_errors'

@@ -41,48 +41,4 @@ h1 My Contacts
       = paginate @contacts
 
   .col-sm-3.search-panel
-    .form-group
-      = link_to "Create new contact", new_contact_path, class: "btn btn-primary btn-streched"
-    .well
-      h2 Search Contacts
-
-      = form_tag contacts_path, method: :get do
-        .form-group
-          = label_tag :first_name, "First Name"
-          = text_field_tag :first_name, "", class: "form-control"
-
-        .form-group
-          = label_tag :last_name, "Last Name"
-          = text_field_tag :last_name, "", class: "form-control"
-
-        .form-group
-          = label_tag :company, "Company Name"
-          = text_field_tag :company, "", class: "form-control"
-
-        .form-group
-          = label_tag :member_type
-          = text_field_tag :member_type, "", class: "form-control"
-
-        .form-group
-          = label_tag :country
-          = text_field_tag :country, "", class: "form-control"
-
-        .form-group
-          = label_tag :state, "State/Country/Province"
-          = text_field_tag :state, "", class: "form-control"
-
-        .form-group
-          = label_tag :city, "City/Town"
-          = text_field_tag :city, "", class: "form-control"
-
-        .form-group
-          button.btn.btn-primary.btn-sm Search Contacts
-
-      h2 Quick Search
-      p
-        b View All
-        a.small &raquo;
-      p.text-gray Past Customers
-      p.text-gray Past Hours
-      p.text-gray Past Customers
-
+    = render 'right_panel'

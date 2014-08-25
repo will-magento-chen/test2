@@ -31,18 +31,19 @@
 
         .col-sm-6
           h2 Children
+          - child = @contact.children.first
           p
             b Name: 
-            = @contact.full_name
+            = child.try(:full_name)
           p
             b Birthday: 
-            | 1988-02-02
+            = child.try(:full_name)
           p
             b Gender: 
-            | Female
+            = child.try(:gender)
           p
             b Relationship: 
-            | Daughter
+            = child.try(:relationship)
 
           h2 Interested in...
           p

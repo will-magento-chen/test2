@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821183733) do
+ActiveRecord::Schema.define(version: 20140824213444) do
 
   create_table "children", force: true do |t|
     t.integer  "contact_id"
@@ -64,6 +64,12 @@ ActiveRecord::Schema.define(version: 20140821183733) do
     t.string   "start_time"
     t.string   "end_date"
     t.string   "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", force: true do |t|
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

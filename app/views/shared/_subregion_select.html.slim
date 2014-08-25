@@ -1,11 +1,14 @@
 #state_wrapper
   - parent_region ||= params[:parent_region]
-  - object ||= params[:object].to_sym
+  - object ||= params[:object].present? ? params[:object].to_sym : nil
   - country = Carmen::Country.coded(parent_region)
   - if country.nil?
     em Please select a country above
   - elsif country.subregions?
-    = subregion_select(object, :state, parent_region, {}, class: 'form-control')
+    - if object.nil?
+      = subregion_select_tag(:state, params[:state], parent_region, { prompt: "Select State/Province" }, class: 'form-control')
+    - else
+      = subregion_select(object, :state, parent_region, {}, class: 'form-control')
   - else
     = text_field(object, :state, class: 'form-control')
     = hidden_field_tag :object, object

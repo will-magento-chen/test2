@@ -1,8 +1,9 @@
 class ContactsController < ApplicationController
   before_action :find_resource, only: [:show, :edit, :update, :destroy]
+  include ContactScopes
 
   def index
-    @contacts = Contact.page(params[:page]).per(10)
+    @contacts = apply_scopes(Contact).page(params[:page]).per(10)
   end
 
   def new
@@ -29,6 +30,11 @@ class ContactsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @contact.destroy
+    redirect_to contacts_path, notice: "Contact has been deleted successfully."
   end
 
   private

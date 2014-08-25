@@ -1,0 +1,43 @@
+.form-group
+  = link_to "Create new contact", new_contact_path, class: "btn btn-primary btn-streched"
+.well
+  h2 Search Contacts
+
+  = form_tag contacts_path, method: :get do
+    .form-group
+      = label_tag :first_name, "First Name"
+      = text_field_tag :first_name, params[:first_name], class: "form-control"
+
+    .form-group
+      = label_tag :last_name, "Last Name"
+      = text_field_tag :last_name, params[:last_name], class: "form-control"
+
+    .form-group
+      = label_tag :company, "Company Name"
+      = text_field_tag :company, params[:company], class: "form-control"
+
+    .form-group
+      = label_tag :member_type
+      = text_field_tag :member_type, params[:member_type], class: "form-control"
+
+    .form-group
+      = label_tag :country
+      = select_tag :country, options_from_collection_for_select(wishlist_countries, "code", "name", params[:country]), { prompt: "Select Country", class: "form-control country-select" } 
+
+    .form-group
+      = label_tag :state, "State/Country/Province"
+      = render partial: 'shared/subregion_select', locals: { parent_region: params[:country] }
+    
+    .form-group
+      = label_tag :city, "City/Town"
+      = text_field_tag :city, params[:city], class: "form-control"
+
+    .form-group
+      button.btn.btn-primary.btn-sm Search Contacts
+
+  h2 Quick Search
+  p
+    b View All
+    a.small &raquo;
+  p.text-gray Past Customers
+  p.text-gray Past Hosts
