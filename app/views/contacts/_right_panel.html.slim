@@ -37,7 +37,18 @@
 
   h2 Quick Search
   p
-    b View All
-    a.small &raquo;
+    = link_to contacts_path, class: "text-default" do
+      b.text-gray View All
+      span.small &raquo;
   p.text-gray Past Customers
   p.text-gray Past Hosts
+
+  hr.gray-border.border-solid
+  p.text-gray Potential Ambassadors
+  p.text-gray Potential Hosts
+  p.text-gray Leads from Home Office
+  p.text-gray Referral Orders
+
+  hr.gray-border.border-solid
+  p.text-gray Has Store Credit
+

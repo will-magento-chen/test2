@@ -1,7 +1,7 @@
 h2 Event Details
 .row
-  = f.input :event_type_id, collection: EventType.all, required: true, label: "Event Type"
-  = f.input :name, required: true, label: "Event Name"
+  = f.input :event_type_id, collection: EventType.all, required: true, label: "Event Type", selected: 1
+  = f.input :name, required: true, label: "Event Name", input_html: { placeholder: "e.g., Sue's family party; Preschool fundraiser"}
 label.control-label
   = f.check_box :is_public
   | This is a public event (it will be displayed on your market place).

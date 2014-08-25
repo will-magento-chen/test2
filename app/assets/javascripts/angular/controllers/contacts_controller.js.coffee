@@ -15,3 +15,4 @@
 
     .catch (errResponse) ->
       console.log(errResponse)
+]
