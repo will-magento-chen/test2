@@ -8,9 +8,7 @@ $brand-primary: #cc0033;
 $brand-success: #96c926;
 $brand-warning: #f58229;
 $container-large-desktop: 1024px;
-$navbar-inverse-color: $brand-primary;
-$navbar-inverse-bg: $brand-primary;
-$navbar-inverse-border: $brand-primary;
+$nav-link-hover-bg: darken($brand-primary, 5%);
 
 $table-bg-accent: #eee;
 
@@ -26,6 +24,8 @@ img {
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: 1.7em;
+  height: 65px;
+  padding: 0px 20px;
 }
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
@@ -53,7 +53,7 @@ img {
 main {
   @extend .container;
   padding-bottom: 80px;
-  margin-top: 51px; // accommodate the navbar
+  margin-top: -10px; // accommodate the navbar
   background: white;
   padding-left: 20px;
   padding-right: 20px;
@@ -129,10 +129,6 @@ a {
   color: $brand-warning;
 }
 
-.navbar-fixed-top {
-  background: $brand-primary;
-  border-color: $brand-primary;
-}
 .navbar-inverse .navbar-brand {
   color: white !important;
 }
@@ -149,4 +145,42 @@ hr {
 
 .border-solid {
   border-style: solid;
+}
+
+#menu-bar {
+  margin-top: 40px;
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+}
+
+.navbar {
+  border :none;
+}
+.navbar-toggle {
+  border: 1px solid #eee;
+  span {
+    background: #eee;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .navbar-header {
+    float: none;
+    background-color: #eee;
+
+    h3 {
+      color: white;
+    }
+  }
+}
+
+
+.navbar-nav > li > a {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+
+  &.active {
+    color: $brand-warning;
+  }
 }

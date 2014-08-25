@@ -1,13 +1,17 @@
 / navigation styled for Bootstrap 3.0
-nav.navbar.navbar-inverse.navbar-fixed-top
-  .container
-    .navbar-header
-      button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to 'MY BAREFOOT', root_path, class: 'navbar-brand'
-    .collapse.navbar-collapse
-      ul.nav.navbar-nav
-        = render 'layouts/navigation_links'
+nav.navbar
+  = render "layouts/top"
+  #menu-bar.container
+    .row
+      .navbar-header
+        = link_to root_path, class: 'navbar-brand hidden-xs'
+          = image_tag 'logo.png'
+        button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+    .row
+      .collapse.navbar-collapse
+        ul.nav.navbar-nav
+          = render 'layouts/navigation_links'
