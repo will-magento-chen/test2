@@ -9,7 +9,7 @@ h1 My Contacts
           input type="checkbox" ng-model="select_all" style="margin-top: 10px;"
           | Select All
       .col-sm-9
-        a.btn.btn-default Send email
+        a.btn.btn-default href="mailto:#{@contacts.map(&:email).join(',')}" Send email
         = link_to "Export contacts", contacts_path(format: "csv"), class: "btn btn-default"
     .text-right= page_entries_info @contacts
     .table-responsive
