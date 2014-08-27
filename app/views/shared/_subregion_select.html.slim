@@ -3,7 +3,7 @@
   - object ||= params[:object].present? ? params[:object].to_sym : nil
   - country = Carmen::Country.coded(parent_region)
   - if country.nil?
-    em Please select a country above
+    .form-group Please select a country above
   - elsif country.subregions?
     - if object.nil?
       = subregion_select_tag(:state, params[:state], parent_region, { prompt: "Select State/Province" }, class: 'form-control')

@@ -21,8 +21,7 @@ label ng-if="hosting_type == 'myself'" Host Name
     = f.collection_select :host_id, Contact.all, :id, :full_name, {}, { class: "form-control" }
   .pull-left
     span or &nbsp;
-    a.btn.btn-default Add New Contact
-
+    a.btn.btn-default data-toggle="modal" data-target="#create-contact" Add New Contact
 h2 Location
 div ng-init="location_type='customer'"
   label.control-label

@@ -12,7 +12,7 @@ h2 Contact Info
   = f.input :country, collection: wishlist_countries, label_method: :name, value_method: :code, selected: 'US', input_html: { class: 'country-select form-control'}
   .col-sm-6.control-group
     = f.label :state
-    = render partial: 'shared/subregion_select', locals: { object: :contact, parent_region: f.object.country }
+    = render partial: 'shared/subregion_select', locals: { object: :contact, parent_region: f.object.try(:country) }
   = f.input :city
   = f.input :zipcode
   = f.input :mobile_phone
@@ -20,7 +20,7 @@ h2 Contact Info
 h2 Children
 p Send birthday wishes and/or custom book and gift suggestions for the children in your contact life
 .row
-  = f.fields_for :children, @contact.children do |c|
+  = f.fields_for :children, @contact.try(:children) do |c|
     .col-sm-4
       = c.label :name, "Child's Name"
       = c.text_field :name, class: 'form-control'

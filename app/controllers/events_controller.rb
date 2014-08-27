@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.country = 'US'
   end
 
   def create

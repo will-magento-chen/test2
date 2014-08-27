@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
   include ContactScopes
 
   def index
-    @contacts = apply_scopes(Contact).page(params[:page]).per(10)
+    @contacts = apply_scopes(Contact).page(params[:page]).per(10).order(id: :desc)
     respond_to do |format|
       format.html
       format.csv { send_data @contacts.to_csv }
