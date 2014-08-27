@@ -5,7 +5,7 @@ class Contact < ActiveRecord::Base
   accepts_nested_attributes_for :children, allow_destroy: true
 
   validates_presence_of :first_name, :last_name, :children
-
+  validates_uniqueness_of :email, allow_blank: true
   # Scope methods
   scope :by_first_name, -> first_name { where("first_name like ?", "%#{first_name}%") }
   scope :by_last_name, -> last_name { where("last_name like ?", "%#{last_name}%") }

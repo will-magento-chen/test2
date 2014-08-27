@@ -13,6 +13,7 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @contact.country = 'US'
+    @contact.children.build
   end
 
   def edit
@@ -24,7 +25,7 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to contacts_path, notice: "Contact has been created successfully"
     else
-      redirect_to :back, alert: @contact.errors.full_messages
+      render :new
     end
   end
 
