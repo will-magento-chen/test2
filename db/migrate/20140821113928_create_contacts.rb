@@ -13,7 +13,9 @@ class CreateContacts < ActiveRecord::Migration
       t.string :zipcode
       t.string :mobile_phone
       t.string :alternate_phone
-      
+      t.boolean :interested_buying
+      t.boolean :interested_hosting
+      t.boolean :interested_joining
       t.timestamps
     end
   end

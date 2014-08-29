@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140825115401) do
   create_table "contacts", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email",           null: false
+    t.string   "email",              null: false
     t.string   "company"
     t.string   "address1"
     t.string   "address2"
@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(version: 20140825115401) do
     t.string   "zipcode"
     t.string   "mobile_phone"
     t.string   "alternate_phone"
+    t.boolean  "interested_buying"
+    t.boolean  "interested_hosting"
+    t.boolean  "interested_joining"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

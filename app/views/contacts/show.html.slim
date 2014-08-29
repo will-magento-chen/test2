@@ -46,17 +46,20 @@
             = child.try(:relationship)
 
           h2 Interested in...
-          p
-            i.glyphicon.glyphicon-ok.text-warning
-            span Hosting a barefoot event
-          p.form-group
-            i.glyphicon.glyphicon-ok.text-warning
-            span Joining as a Ambassador to start a business
+          - if @contact.interested_buying
+            p
+              i.glyphicon.glyphicon-ok.text-warning
+              span Hosting a barefoot event
+          - if @contact.interested_hosting
+            p.form-group
+              i.glyphicon.glyphicon-ok.text-warning
+              span Joining as a Ambassador to start a business
 
-          p
-            b Email Sign-up 
-          i.glyphicon.glyphicon-ok.text-warning
-          | Opted in to recieve email from home office
+          - if @contact.interested_joining
+            p
+              b Email Sign-up 
+            i.glyphicon.glyphicon-ok.text-warning
+            | Opted in to recieve email from home office
       hr
       .row
         .col-sm-6

@@ -39,13 +39,13 @@ p Send birthday wishes and/or custom book and gift suggestions for the children 
     h2 Interested in
     .form-group
       label.control-label
-        input type="checkbox"
+        = f.check_box :interested_buying
         | Buying Barefoot Books & Gifts
       label.control-label
-        input type="checkbox"
+        = f.check_box :interested_hosting
         | Hosting a barefoot event
       label.control-label
-        input type="checkbox"
+        = f.check_box :interested_joining
         span Joining as an Ambassador to start a business
     .form-group
       label Notes
