@@ -21,11 +21,19 @@ class ContactsController < ApplicationController
   end
 
   def create
+    puts params[:format]
+
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to contacts_path, notice: "Contact has been created successfully"
+      respond_to do |format|
+        format.json { render json: @contact, status: :created }
+        format.html { redirect_to @contact, notice: "Event has been created successfully" }
+      end
     else
-      render :new
+      respond_to do |format|
+        format.json { render json: @contact.errors.full_messages, status: :unprocessable_entity }
+        format.html { render :new }
+      end
     end
   end
 

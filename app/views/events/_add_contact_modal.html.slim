@@ -1,16 +1,19 @@
 #create-contact.modal.fade aria-hidden="true" aria-labelledby="contactLabel" role="dialog" tabindex="-1" 
   .modal-dialog
-    .modal-content
-      .modal-header
-        button.close data-dismiss="modal" type="button" 
-          span aria-hidden="true"  &times;
-          span.sr-only Close
-        h4#contactLabel.modal-title Create Contact
-      .modal-body
-        = simple_form_for :contact, 
+    = simple_form_for :contact, url: contacts_path, remote: true,
                       defaults: { wrapper_html: { class: "col-sm-6" }, input_html: { class: "form-control" }}, 
-                      input_html: { class: "form-horizontal" } do |f|
+                      html: { id: "new_contact", method: :post } do |f|
+      .modal-content
+        .modal-header
+          button.close data-dismiss="modal" type="button" 
+            span aria-hidden="true"  &times;
+            span.sr-only Close
+          h4#contactLabel.modal-title Create Contact
+        .modal-body
+          .alert.alert-danger.hide
+            button.close data-dismiss="alert" aria-hidden="true" type="button" &times;
+            .content
           = render "contacts/form", f: f
-      .modal-footer
-        button.btn.btn-default data-dismiss="modal" type="button"  Close
-        button.btn.btn-primary type="button"  Create Contact
+        .modal-footer
+          button.btn.btn-default data-dismiss="modal" type="button"  Close
+          button.btn.btn-primary Create Contact
