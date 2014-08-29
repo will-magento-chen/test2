@@ -2,7 +2,13 @@ class EventsController < ApplicationController
   before_action :find_resource, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.page(params[:page]).per(10)
+    if params[:status] == "active"
+      @events = Event.active.page(params[:page]).per(10)
+    elsif params[:status] == "past"
+      @events = Event.past.page(params[:page]).per(10)
+    else
+      @events = Event.page(params[:page]).per(10)
+    end
   end
 
   def new
