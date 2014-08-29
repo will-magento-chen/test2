@@ -11,7 +11,6 @@ puts "Create Contacts"
                    city: Faker::Address.city,
                    zipcode: Faker::Address.zip_code,
                    mobile_phone: Faker::PhoneNumber.cell_phone
-
                 })
 end
 
