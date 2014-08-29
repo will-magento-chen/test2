@@ -6,7 +6,7 @@ class ApiController < ApplicationController
   before_filter :initialize_per_page, only: [:index]
 
   # app_responders help to determine what version of the API controllers to use
-  require 'app_responders'
+
   respond_to :json
 
   def show
