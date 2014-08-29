@@ -49,17 +49,20 @@
           - if @contact.interested_buying
             p
               i.glyphicon.glyphicon-ok.text-warning
-              span Hosting a barefoot event
+              span  Buying Barefoot Books & Gifts
           - if @contact.interested_hosting
+            p
+              i.glyphicon.glyphicon-ok.text-warning
+              span  Hosting a barefoot event
+          - if @contact.interested_joining
             p.form-group
               i.glyphicon.glyphicon-ok.text-warning
-              span Joining as a Ambassador to start a business
+              span  Joining as a Ambassador to start a business
 
-          - if @contact.interested_joining
-            p
-              b Email Sign-up 
-            i.glyphicon.glyphicon-ok.text-warning
-            | Opted in to recieve email from home office
+          p
+            b Email Sign-up 
+          i.glyphicon.glyphicon-ok.text-warning
+          span  Opted in to recieve email from home office
       hr
       .row
         .col-sm-6
