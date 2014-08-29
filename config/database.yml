@@ -32,10 +32,9 @@ test:
   host: localhost
 
 production:
+  host: ec2-54-225-101-124.compute-1.amazonaws.com
   adapter: postgresql
   database: db83ghgpnagfl6
   username: kikgarkgazhzof
   password: SroKPQuVu9NKdh104o9neC0zf_
-  host: ec2-54-225-101-124.compute-1.amazonaws.com
-  template: template0
-  encoding: utf8
+  port: 5432
