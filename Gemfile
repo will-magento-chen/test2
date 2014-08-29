@@ -24,6 +24,7 @@ gem 'versionist'
 gem 'active_model_serializers'
 gem 'has_scope'
 gem 'sentient_user' #provides for intelligent user stamping, see: https://github.com/bokmann/sentient_user
+gem 'pg'
 
 group :development do
   gem 'better_errors'
@@ -33,6 +34,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
