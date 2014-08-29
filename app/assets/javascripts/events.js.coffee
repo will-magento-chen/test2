@@ -3,9 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  $("#create-contact").on "show.bs.modal", ->
+    $("#new_contact")[0].reset()
   $("#new_contact").on("ajax:success", (e, data, status, xhr) ->
-    debugger
-    $("#event_host_id").append("<option value='#{data.id}'>#{data.first_name} #{data.last_name}</option>")
+    $("#event_host_id").append("<option selected value='#{data.id}'>#{data.first_name} #{data.last_name}</option>")
     $("#create-contact").modal('hide')
     return
   ).on "ajax:error", (e, xhr, status, error) ->
