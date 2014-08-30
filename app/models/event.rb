@@ -1,8 +1,10 @@
 class Event < ActiveRecord::Base
+  acts_as_commentable
+  
   belongs_to :event_type
-  before_create :generate_affiliate_code
-
   belongs_to :host, foreign_key: 'host_id', class_name: 'Contact'
+
+  before_create :generate_affiliate_code
 
   scope :active, -> { where("STR_TO_DATE(CONCAT(end_date, ' ', end_time), '%Y-%m-%d %H:%i') > ?", Time.now) }
   scope :past, -> { where("STR_TO_DATE(CONCAT(end_date, ' ', end_time), '%Y-%m-%d %H:%i') < ?", Time.now) }

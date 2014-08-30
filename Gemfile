@@ -25,6 +25,7 @@ gem 'active_model_serializers'
 gem 'has_scope'
 gem 'sentient_user' #provides for intelligent user stamping, see: https://github.com/bokmann/sentient_user
 gem 'pg'
+gem 'acts_as_commentable'
 
 group :development do
   gem 'better_errors'

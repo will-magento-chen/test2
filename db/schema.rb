@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 20140825115401) do
   end
 
   create_table "notes", force: true do |t|
+    t.integer  "noteable_id",   null: false
+    t.string   "noteable_type", null: false
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"

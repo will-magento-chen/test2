@@ -29,6 +29,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_commentable (4.0.1)
     angularjs-rails (1.2.22)
     arel (5.0.1.20140414130214)
     better_errors (2.0.0)
@@ -196,6 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  acts_as_commentable
   angularjs-rails
   better_errors
   binding_of_caller
