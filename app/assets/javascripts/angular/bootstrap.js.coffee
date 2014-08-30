@@ -5,9 +5,10 @@
   "restangular"
 ])
 
-@app.config ($httpProvider, $routeProvider) ->
+@app.config ["$httpProvider", "$routeProvider", ($httpProvider, $routeProvider) ->
   authToken = $("meta[name=\"csrf-token\"]").attr("content")
   $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken
+]
 
 @app.config ["RestangularProvider", (RestangularProvider) ->
   RestangularProvider.setBaseUrl("/api")
