@@ -5,6 +5,7 @@ class Contact < ActiveRecord::Base
   has_many :children, dependent: :destroy
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email, allow_blank: true
+  
   # Scope methods
   scope :by_first_name, -> first_name { where("first_name like ?", "%#{first_name}%") }
   scope :by_last_name, -> last_name { where("last_name like ?", "%#{last_name}%") }
@@ -15,6 +16,9 @@ class Contact < ActiveRecord::Base
   scope :by_city, -> city { where(city: city) }
   # scope :active, -> where { where(active: true) }
 
+  GENDER = %w[Boy Girl]
+  RELATIONSHIP = %w[Son/Daughter Grandson/Granddaughter Niece/Nephew Other]
+  
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

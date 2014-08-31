@@ -17,8 +17,8 @@
 //= require angular-resource
 //= require angular-route
 //= require angular-sanitize
-//= require angular/bootstrap
 //= require underscore.min
-//= require jquery.datetimepicker
 //= require_directory ./plugins
+//= require angular/bootstrap
+//= require jquery.datetimepicker
 //= require_tree .

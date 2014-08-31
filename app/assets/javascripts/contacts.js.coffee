@@ -13,3 +13,13 @@ $ ->
     showInputs: false,
     minuteStep: 15
   })
+
+  $("a#add-child").on "click", ->
+    child = $("#child-template").clone()
+    child.removeClass("hide")
+    $("#children").append(child)
+
+    $('.dateonly').datetimepicker({
+      format: 'Y-m-d',
+      timepicker: false
+    })

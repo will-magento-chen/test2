@@ -12,4 +12,7 @@
       restangular = Restangular.all("comments")
       #return a promise to the post to be handled by controller
       restangular.post(attrs)
+
+    delete: (resource) ->
+      Restangular.one('comments', resource.id).remove()
 ]

@@ -1,9 +1,7 @@
 # Base controller for api controllers
 class ApiController < ApplicationController
-  skip_before_filter :authenticate_user!
-  before_filter :authenticate
-  after_filter :set_pagination, only: [:index]
-  before_filter :initialize_per_page, only: [:index]
+  # after_filter :set_pagination, only: [:index]
+  # before_filter :initialize_per_page, only: [:index]
 
   # app_responders help to determine what version of the API controllers to use
 
@@ -64,23 +62,28 @@ class ApiController < ApplicationController
     params[:per_page] ||= 25
   end
 
-   def authenticate
-    authenticate_token || render_unauthorized
+  def api_scopes(klass)
+    scope = apply_scopes(klass)
+    scope.respond_to?(:to_a) ? scope.to_a : scope.all
   end
 
-  def authenticate_token
-    authenticate_with_http_token do |token, options|
-      token == api_token
-    end
-  end
+  #  def authenticate
+  #   authenticate_token || render_unauthorized
+  # end
 
-  def render_unauthorized
-    self.headers['WWW-Authenticate'] = 'Token realm="Application"'
-    render json: 'Invalid Access Token', status: 401
-  end
+  # def authenticate_token
+  #   authenticate_with_http_token do |token, options|
+  #     token == api_token
+  #   end
+  # end
 
-  def api_token
-    'KFKECHZ2YHKM3SE5KYU6'
-  end
+  # def render_unauthorized
+  #   self.headers['WWW-Authenticate'] = 'Token realm="Application"'
+  #   render json: 'Invalid Access Token', status: 401
+  # end
+
+  # def api_token
+  #   'KFKECHZ2YHKM3SE5KYU6'
+  # end
 
 end

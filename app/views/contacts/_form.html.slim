@@ -17,22 +17,52 @@ h2 Contact Info
   = f.input :zipcode
   = f.input :mobile_phone
   = f.input :alternate_phone
-h2 Children
-p Send birthday wishes and/or custom book and gift suggestions for the children in your contact life
-.row
-  = f.fields_for :children, @contact.try(:children) do |c|
-    .col-sm-4
-      = c.label :name, "Child's Name"
-      = c.text_field :name, class: 'form-control'
-    .col-sm-3
-      = c.label :birthday, "Child's Birthday"
-      = c.text_field :birthday, class: 'dateonly form-control'
-    .col-sm-2
-      = c.label :gender
-      = c.select :gender, %w[Boy Girl], {}, class: 'form-control'
-    .col-sm-3
-      = c.label :relationship
-      = c.select :relationship, %w[Son/Daughter Grandson/Granddaughter Niece/Nephew Other], {}, class: 'form-control'
+#children
+  h2 Children
+  p Send birthday wishes and/or custom book and gift suggestions for the children in your contact life
+  - if @contact.children.empty?
+    .row
+      .col-sm-4
+        = label_tag :name, "Child's Name"
+        input.form-control name="children[][name]"
+      .col-sm-3
+        = label_tag :birthday, "Child's Birthday"
+        input.dateonly.form-control name="children[][birthday]"
+      .col-sm-2
+        = label_tag :gender
+        = select_tag "children[][gender]", options_for_select(Contact::GENDER), class: 'form-control'
+      .col-sm-3
+        = label_tag :relationship
+        = select_tag "children[][relationship]", options_for_select(Contact::RELATIONSHIP), class: 'form-control'
+  - else
+    - @contact.children.each do |child|
+      .row
+        .col-sm-4
+          = label_tag :name, "Child's Name"
+          input.form-control name="children[][name]" value="#{child.name}"
+        .col-sm-3
+          = label_tag :birthday, "Child's Birthday"
+          input.dateonly.form-control name="children[][birthday]" value="#{child.birthday.to_date}"
+        .col-sm-2
+          = label_tag :gender
+          = select_tag "children[][gender]", options_for_select(Contact::GENDER, child.gender), class: 'form-control'
+        .col-sm-3
+          = label_tag :relationship
+          = select_tag "children[][relationship]", options_for_select(Contact::RELATIONSHIP, child.relationship), class: 'form-control'
+a#add-child.small Add another child >>
+#child-template.row.hide
+  .col-sm-4
+    = label_tag :name, "Child's Name"
+    input.form-control name="children[][name]"
+  .col-sm-3
+    = label_tag :birthday, "Child's Birthday"
+    input.dateonly.form-control name="children[][birthday]"
+  .col-sm-2
+    = label_tag :gender
+    = select_tag "children[][gender]", options_for_select(Contact::GENDER), class: 'form-control'
+  .col-sm-3
+    = label_tag :relationship
+    = select_tag "children[][relationship]", options_for_select(Contact::RELATIONSHIP), class: 'form-control'
 
 .row.form-group
   .col-sm-6

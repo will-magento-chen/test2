@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # constraints: OnlyAjaxRequest.new,
   api_version module: 'Api', path: { value: 'api' }, default: true do
-    resources :contacts, only: [:create, :destroy, :index, :update]
+    resources :contacts
+    resources :comments
   end
 end

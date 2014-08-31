@@ -64,16 +64,26 @@
           i.glyphicon.glyphicon-ok.text-warning
           span  Opted in to recieve email from home office
       hr
-      .row
-        .col-sm-6
-          .form-group
-            label Notes
-            textarea.form-control rows=3 name="note"
-          a.btn.btn-primary Add note
-        .col-sm-6
-          h2 Available Credits
-          p Free Gift Credit(FGC): $20.00
-          p Qualified Host Gifts(60% off current host special): 3
+      #comments ng-controller="CommentCtrl" ng-init="getComments('Contact', #{@contact.id})"
+        .row
+          .col-sm-6
+            .form-group
+              label Notes
+              textarea.form-control rows=3 name="note" ng-model="comment"
+            a.btn.btn-primary ng-click="createComment('Contact', #{@contact.id})" Add note
+          .col-sm-6
+            h2 Available Credits
+            p Free Gift Credit(FGC): $20.00
+            p Qualified Host Gifts(60% off current host special): 3
 
-      hr
-      h2 Previous Notes
+        h2 Previous Notes
+        div ng-repeat="comment in comments"
+          .row
+            .col-xs-9.col-sm-10
+              p ng-bind="comment.comment"
+              span.text-gray ng-bind="comment.created_at | date : 'd MMMM y'"
+            .col-xs-3.col-sm-2.text-right
+              a ng-click="deleteComment(comment)" remove
+          hr
+
+
