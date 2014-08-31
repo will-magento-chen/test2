@@ -3,10 +3,11 @@ class Api::CommentsController < ApiController
   before_filter :find_resource, only: [:show, :update, :destroy]
 
   JSON_CLASSNAME = :comment
-  has_scope :by_commentable, :using => [:commentable_id, :commentable_type], :type => :hash
+  has_scope :by_commentable_id, as: :commentable_id
+  has_scope :by_commentable_type, as: :commentable_type
 
   def index
-    @resources = api_scopes(Comment).page(params[:page]).per(params[:per_page])
+    @resources = api_scopes(Comment)
     render json: @resources
   end
 

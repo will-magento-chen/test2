@@ -20,7 +20,7 @@ h2 Contact Info
 #children
   h2 Children
   p Send birthday wishes and/or custom book and gift suggestions for the children in your contact life
-  - if @contact.children.empty?
+  - if @contact.nil? || @contact.children.empty?
     .row
       .col-sm-4
         = label_tag :name, "Child's Name"
@@ -49,6 +49,7 @@ h2 Contact Info
         .col-sm-3
           = label_tag :relationship
           = select_tag "children[][relationship]", options_for_select(Contact::RELATIONSHIP, child.relationship), class: 'form-control'
+
 a#add-child.small Add another child >>
 #child-template.row.hide
   .col-sm-4
