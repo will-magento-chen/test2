@@ -1,8 +1,9 @@
 class Contact < ActiveRecord::Base
   acts_as_commentable
   
-  has_many :hosts, foreign_key: 'host_id'
+  has_many :events, foreign_key: 'host_id'
   has_many :children, dependent: :destroy
+
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email, allow_blank: true
   
