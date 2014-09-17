@@ -32,9 +32,9 @@ test:
   host: localhost
 
 production:
-  host: ec2-54-225-101-124.compute-1.amazonaws.com
-  adapter: postgresql
-  database: db83ghgpnagfl6
-  username: kikgarkgazhzof
-  password: SroKPQuVu9NKdh104o9neC0zf_
-  port: 5432
+  host: <%= ENV['BAREFOOT_MYSQL_HOST'] || '127.0.0.1' %>
+  adapter: mysql2
+  encoding: utf8
+  database: barefootbooks_rails_production
+  username: <%= ENV['BAREFOOT_MYSQL_USER'] || 'root' %>
+  password: <%= ENV['BAREFOOT_MYSQL_PASSWORD'] %>

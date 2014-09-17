@@ -1,2 +1,2 @@
 #!/bin/sh
-exec su - deploy -c "cd app && RAILS_ENV=production bundle exec rackup"
+exec su - deploy -c "cd app && /usr/bin/env SECRET_KEY_BASE=$SECRET_KEY_BASE DOMAIN_NAME=$VIRTUAL_HOST BAREFOOT_MYSQL_HOST=$BAREFOOT_MYSQL_HOST BAREFOOT_MYSQL_PASSWORD=$BAREFOOT_MYSQL_PASSWORD RAILS_ENV=production bundle exec rackup"
