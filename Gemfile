@@ -24,7 +24,6 @@ gem 'versionist'
 gem 'active_model_serializers'
 gem 'has_scope'
 gem 'sentient_user' #provides for intelligent user stamping, see: https://github.com/bokmann/sentient_user
-gem 'pg'
 gem 'acts_as_commentable'
 
 group :development do
@@ -34,6 +33,7 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'pg'
 end
 
 group :development, :test do
