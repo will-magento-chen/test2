@@ -1,4 +1,4 @@
-FROM synctree/base-ubuntu12.04-deploy-ruby
+FROM synctree/base-ubuntu14.04-deploy-ruby
 MAINTAINER Synctree App Force <appforce@synctree.com>
 
 RUN apt-get install -y libmysqlclient-dev
