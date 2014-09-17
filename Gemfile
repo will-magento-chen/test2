@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.2'
 gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -24,7 +24,6 @@ gem 'versionist'
 gem 'active_model_serializers'
 gem 'has_scope'
 gem 'sentient_user' #provides for intelligent user stamping, see: https://github.com/bokmann/sentient_user
-gem 'pg'
 gem 'acts_as_commentable'
 
 group :development do
@@ -34,6 +33,7 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'pg'
 end
 
 group :development, :test do
