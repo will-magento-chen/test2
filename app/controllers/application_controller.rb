@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     if php_session
       timestamp = Time.now.to_i
       token = Digest::MD5.hexdigest("#{timestamp} at #{php_session}")
-      url = URI.parse("#{ENV['BAREFOOT_SESSION_CHECK_URL']}?sid=#{php_session}&token=#{token}&t=#{timestamp}")
+      url = URI.parse("#{session_check_url}?sid=#{php_session}&token=#{token}&t=#{timestamp}")
       req = Net::HTTP::Get.new(url.to_s)
       res = Net::HTTP.start(url.host, url.port) {|http|
         http.request(req)
