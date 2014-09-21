@@ -25,10 +25,11 @@ gem 'active_model_serializers'
 gem 'has_scope'
 gem 'sentient_user' #provides for intelligent user stamping, see: https://github.com/bokmann/sentient_user
 gem 'acts_as_commentable'
+gem 'devise'
 
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_20]
+  gem 'binding_of_caller'
   gem 'foreman'
   gem 'hub', :require=>nil
   gem 'quiet_assets'

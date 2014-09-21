@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+
+  before_action :authenticate_user!
   before_action :find_resource, only: [:show, :edit, :update, :destroy]
 
   def index
