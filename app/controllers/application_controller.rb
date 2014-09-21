@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
 
   before_filter :transfer_session
 
+  include ApplicationHelper
+
+  protected
   def transfer_session
     session_check_url = ENV['BAREFOOT_SESSION_CHECK_URL']
     php_session = request.cookies['PHPSESSID']
