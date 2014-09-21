@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :shopping do
     collection do
       get :start
+      post :start
     end
   end
 

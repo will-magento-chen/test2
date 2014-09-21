@@ -1,23 +1,24 @@
 .title
   h1 Start shopping
 .row
-  .col-sm-6
-    h2 Place a personal order
-    h3 Sales aims, samples or cash & carry. Ships to one address only.
-    .form-group
-      textarea.form-control rows="4"
-    a.btn.btn-primary Start shopping
-    h4 Your active promotions
-    p.text-gray-darker Free shoping on orders $100
-  .col-sm-4
-    h2 Order for an event
-    h3 Select an Event and Order
-    .form-group
-      = select_tag :evemt, options_from_collection_for_select(Event.all, "id", "name"), { class: "form-control country-select" } 
-      
-    .form-group
-      a.btn.btn-default.text-primary Customer Order &#9654;
-      a.btn.btn-default.text-primary Host Order &#9654;
-    .text-center
-      span or &nbsp;
-      a.btn.btn-default.text-warning Place Non-event Order
+  = form_tag start_shopping_index_path do
+    input#order_type type="hidden" name='order_type'
+    .col-sm-6
+      h2 Place a personal order
+      h3 Sales aims, samples or cash & carry. Ships to one address only.
+      .form-group
+        textarea.form-control name="address" rows="4"
+      button.btn.btn-primary Start shopping
+      h4 Your active promotions
+      p.text-gray-darker Free shopping on orders $100
+    .col-sm-4
+      h2 Order for an event
+      h3 Select an Event and Order
+      .form-group
+        = select_tag :event_id, options_from_collection_for_select(Event.all, "id", "name"), { class: "form-control country-select" } 
+      .form-group
+        button.btn.btn-default.text-primary onclick='$(this.form).find("#order_type").attr("value", "customer"); this.form.submit(); return false;' Customer Order &#9654;
+        button.btn.btn-default.text-primary onclick='$(this.form).find("#order_type").attr("value", "host"); this.form.submit(); return false;' Host Order &#9654;
+      .text-center
+        span or &nbsp;
+        button.btn.btn-default.text-warning onclick='$(this.form).find("#order_type").attr("value", "non-event"); this.form.submit(); return false;' Place Non-event Order
