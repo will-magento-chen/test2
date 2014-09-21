@@ -7,9 +7,23 @@ header {
   .top {
     background: asset-url("/assets/background-stripe.png");
     padding: 8px 10px 3px;
-    color: white !important;
+    color: white;
     h3 {
-      color: white !important;
+      color: white;
+    }
+
+    li {
+      padding: 0px 10px;
+      border-left: 2px solid white;
+
+      &:first-child {
+        border-left: 0px;
+      }
+
+      a {
+        color: white;
+      }
+
     }
   }
 }

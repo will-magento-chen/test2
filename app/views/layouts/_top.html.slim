@@ -3,9 +3,13 @@
     h3.pull-left.hidden-xs www.barefootbooks.com
     ul.list-inline.pull-right
       li
-        a Hi, Andrew
+        a
+          | Hi, #{current_user.name}!
+        - if current_user.avatar
+          span.avatar
+            = image_tag current_user.avatar
+
       li
-        a Basket
-      li.divider
+        = link_to "Basket", magento_url("checkout/cart")
       li
-        a Sign out
+        = link_to('Sign out', destroy_user_session_path, :method => :delete)
