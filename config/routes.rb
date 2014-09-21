@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   resources :contacts
   resources :events
+  resources :shopping do
+    collection do
+      get :start
+    end
+  end
 
   get '/subregion_options' => 'country#subregion_select'
 

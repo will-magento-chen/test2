@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830213429) do
+ActiveRecord::Schema.define(version: 20140921151721) do
 
   create_table "addresses", force: true do |t|
     t.string   "address1"
@@ -101,6 +101,11 @@ ActiveRecord::Schema.define(version: 20140830213429) do
     t.integer  "noteable_id",   null: false
     t.string   "noteable_type", null: false
     t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
