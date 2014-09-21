@@ -10,13 +10,15 @@ class ApplicationController < ActionController::Base
   before_filter :transfer_session
 
   def transfer_session
+    session_check_url = ENV['BAREFOOT_SESSION_CHECK_URL']
     php_session = request.cookies['PHPSESSID']
+
     return if current_user && php_session && php_session == session[:php_session_id]
 
     if php_session
       timestamp = Time.now.to_i
       token = Digest::MD5.hexdigest("#{timestamp} at #{php_session}")
-      url = URI.parse("http://store.barefootbooks.com/login_check.php?sid=#{php_session}&token=#{token}&t=#{timestamp}")
+      url = URI.parse("#{ENV['BAREFOOT_SESSION_CHECK_URL']}?sid=#{php_session}&token=#{token}&t=#{timestamp}")
       req = Net::HTTP::Get.new(url.to_s)
       res = Net::HTTP.start(url.host, url.port) {|http|
         http.request(req)
