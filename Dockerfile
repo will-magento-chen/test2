@@ -7,14 +7,21 @@ ADD Gemfile       /home/deploy/app/Gemfile
 ADD Gemfile.lock  /home/deploy/app/Gemfile.lock
 ADD .ruby-version /home/deploy/app/.ruby-version
 ADD .ruby-gemset  /home/deploy/app/.ruby-gemset
-RUN chown -R deploy:deploy /home/deploy/app
-RUN su - deploy -c 'cd app && bundle install --without development test'
 
+USER deploy
+ENV USER deploy
+ENV HOME /home/deploy
+WORKDIR /home/deploy/app
+RUN bash -l -c bundle install --without development test
+
+USER root
 ADD . /home/deploy/app
 RUN chown -R deploy:deploy /home/deploy/app
-RUN su - deploy -c 'cd app && RAILS_ENV=production bundle exec rake assets:precompile'
 
-WORKDIR /home/deploy/app
+USER deploy
+RUN bash -l -c RAILS_ENV=production bundle exec rake assets:precompile
+
+ENTRYPOINT ["./bin/entrypoint.sh"]
 CMD ["./bin/run.sh"]
 
 EXPOSE 9292
