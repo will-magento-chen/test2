@@ -1,5 +1,5 @@
 class ShoppingController < ApplicationController
-  
+
   def start
     if request.post?
       @event = Event.find(params[:event_id]) if params[:event_id]
