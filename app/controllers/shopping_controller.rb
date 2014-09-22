@@ -10,7 +10,11 @@ class ShoppingController < ApplicationController
         shopping_context[:event_name] = @event.name
       end
       shopping_context[:order_type] = params[:order_type]
-      cookies[:bf_shop_ctx] = shopping_context.to_json
+      cookies[:bf_shop_ctx] = {
+        domain: 'barefootbooks.com', # TODO don't hardcode this
+        value: shopping_context.to_json,
+        expires: 1.day.from_now
+      }
 
       redirect_to magento_url('checkout/cart')
     end
