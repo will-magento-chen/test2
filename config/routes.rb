@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/sign_in'   => 'root#login'
+  get 'users/sign_out'  => 'root#logout'
   devise_for :users
   root to: "contacts#index"
 

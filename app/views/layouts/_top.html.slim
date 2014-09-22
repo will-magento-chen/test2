@@ -2,14 +2,18 @@
   .container
     h3.pull-left.hidden-xs www.barefootbooks.com
     ul.list-inline.pull-right
-      li
-        a
-          | Hi, #{current_user.name}!
-        - if current_user.avatar
-          span.avatar
-            = image_tag current_user.avatar
+      - if user_signed_in?
+        li
+          a
+            | Hi, #{current_user.name}!
+          - if current_user.avatar
+            span.avatar
+              = image_tag current_user.avatar
 
-      li
-        = link_to "Basket", magento_url("checkout/cart")
-      li
-        = link_to('Sign out', destroy_user_session_path, :method => :delete)
+        li
+          = link_to "Basket", magento_url("checkout/cart")
+        li
+          = link_to('Sign out', destroy_user_session_path, :method => :delete)
+      - else
+        li
+          = link_to('Sign in!', barefoot_sign_in_url)
