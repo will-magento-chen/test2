@@ -1,2 +1,4 @@
 #!/bin/sh
-exec /usr/bin/env DOMAIN_NAME=$VIRTUAL_HOST RAILS_ENV=production bundle exec rackup
+export DOMAIN_NAME=$VIRTUAL_HOST
+export RAILS_ENV=production 
+exec bundle exec rackup
