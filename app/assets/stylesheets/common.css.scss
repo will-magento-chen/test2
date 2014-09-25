@@ -5,11 +5,20 @@ body {
 
 header {
   .top {
-    background: asset-url("/assets/background-stripe.png");
     padding: 8px 10px 3px;
     color: white;
+    height: 40px;
+    background-color: #caffff;
+    opacity: 0.9;
+    padding-top: 9px;
     h3 {
       color: white;
+    }
+
+    a {
+        font-family: "Arial";
+        font-size: 1.17em;
+        color: #009999;
     }
 
     li {
@@ -21,7 +30,6 @@ header {
       }
 
       a {
-        color: white;
       }
 
     }
@@ -136,4 +144,25 @@ a {
 
 .navbar-inverse .navbar-nav > li > a {
   color: #ccc;
+}
+
+
+.teal-bar {
+   background-color: #009999;
+   height: 12px;
+   width: 100%;
+   background-image: url("/assets/dot-green.png");
+}
+.teal-leftcap {
+   margin-left: -4px;
+   background-image: url("/assets/teal-leftcap.png");
+   width: 4px;
+   height: 16px;
+}
+
+.teal-rightcap {
+   margin-right: -4px;
+   background-image: url("/assets/teal-rightcap.png");
+   width: 4px;
+   height: 16px;
 }

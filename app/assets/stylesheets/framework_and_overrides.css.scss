@@ -148,7 +148,6 @@ hr {
 }
 
 #menu-bar {
-  margin-top: 40px;
   background-color: $brand-primary;
   border-color: $brand-primary;
 }
@@ -166,7 +165,8 @@ hr {
 @media (min-width: $screen-md-min) {
   .navbar-header {
     float: none;
-    background-color: #eee;
+    background: url(/assets/background-stripe.png);
+
 
     h3 {
       color: white;
@@ -183,4 +183,16 @@ hr {
   &.active {
     color: $brand-warning;
   }
+}
+
+
+#menu-bar {
+  padding-top: 40px;
+  background-color: #00baba;
+  border-color: #00baba;
+}
+.navbar-brand {
+  font-size: 1.7em;
+  height: 90px;
+  padding: 0px 20px;
 }
