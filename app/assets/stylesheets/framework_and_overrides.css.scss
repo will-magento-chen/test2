@@ -8,10 +8,12 @@ $brand-primary: #cc0033;
 $brand-success: #96c926;
 $brand-warning: #f58229;
 $container-large-desktop: 1024px;
-$nav-link-hover-bg: darken($brand-primary, 5%);
 
 $table-bg-accent: #eee;
 
+$nav-link-hover-bg: transparent;
+$nav-link-hover-color: #cc0000;
+$menubar-color: #00baba;
 
 @import "bootstrap";
 
@@ -26,26 +28,6 @@ img {
   font-size: 1.7em;
   height: 65px;
   padding: 0px 20px;
-}
-
-// THESE ARE EXAMPLES YOU CAN MODIFY
-// create your own classes
-// to make views framework-neutral
-.column {
-  @extend .col-md-6;
-  @extend .text-center;
-}
-.form {
-  @extend .col-md-6;
-}
-.form-centered {
-  @extend .col-md-6;
-  @extend .text-center;
-}
-.submit {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
 }
 
 // apply styles to HTML elements
@@ -148,8 +130,8 @@ hr {
 }
 
 #menu-bar {
-  background-color: $brand-primary;
-  border-color: $brand-primary;
+  background-color: $menubar-color;
+  border-color: $menubar-color;
 }
 
 .navbar {
@@ -182,8 +164,9 @@ hr {
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
-  &.active {
-    color: $brand-warning;
+
+  &.active, &:hover {
+    color: #caffff;
   }
 }
 
