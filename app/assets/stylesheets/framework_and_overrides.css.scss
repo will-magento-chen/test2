@@ -12,7 +12,6 @@ $container-large-desktop: 1024px;
 $table-bg-accent: #eee;
 
 $nav-link-hover-bg: transparent;
-$nav-link-hover-color: #cc0000;
 $menubar-color: #00baba;
 
 @import "bootstrap";
@@ -180,4 +179,40 @@ hr {
   font-size: 1.7em;
   height: 90px;
   padding: 0px 20px;
+}
+
+header #search {
+   height: 26px;
+   box-shadow: none;
+   border-radius: 0px;
+   margin-top: 0px;
+}
+
+.input-append input {
+   margin-top: 0px;
+}
+header .navbar-form {
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+.navbar-form button {
+   margin-left: -32px;
+   background: none !important;
+   outline: none !important;
+   box-shadow: none !important;
+   color: #33cccc;
+   display: inline-block;
+}
+
+input {
+  border: 1px solid #00baba;
+  outline: 0;
+  color: $gray-dark;
+  &:hover {
+    border: 1px solid #66afe9;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  }
 }

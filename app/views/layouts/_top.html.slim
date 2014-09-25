@@ -2,6 +2,14 @@
   .container
     h3.pull-left.hidden-xs
       a www.barefootbooks.com
+    
+    #search.pull-right
+      form#search_mini_form.navbar-form action="http://store.barefootbooks.com/catalogsearch/result/" method="get" 
+        input name="order" type="hidden" value="relevance" 
+        input name="dir" type="hidden" value="desc" 
+        input#search.input-text.input-sm name="q" placeholder=("Search Products...") type="text" value="" 
+        button.btn.btn-sm type="submit" 
+          i.glyphicon.glyphicon-search
     ul.list-inline.pull-right
       - if user_signed_in?
         li
@@ -18,3 +26,12 @@
       - else
         li
           = link_to('Sign in!', barefoot_sign_in_url)
+      li.dropdown
+        a.dropdown-toggle data-toggle="dropdown" href="#" 
+          | You are in North America
+          span.caret
+        ul.dropdown-menu role="menu" 
+          li
+            a href="#"  North America
+          li
+            a href="#"  Europe
