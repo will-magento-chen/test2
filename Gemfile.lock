@@ -32,6 +32,7 @@ GEM
     acts_as_commentable (4.0.1)
     angularjs-rails (1.2.22)
     arel (5.0.1.20140414130214)
+    awesome_print (1.2.0)
     bcrypt (3.1.7)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -208,6 +209,7 @@ DEPENDENCIES
   active_model_serializers
   acts_as_commentable
   angularjs-rails
+  awesome_print
   better_errors
   binding_of_caller
   bootstrap-sass

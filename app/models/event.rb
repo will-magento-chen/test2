@@ -24,6 +24,15 @@ class Event < ActiveRecord::Base
     "#{self.city}, #{state}, #{country}"
   end
 
+  def as_json(options = {})
+    return {
+      id:     self.id.to_s,
+      name:   self.name,
+      updatedAt:  updated_at.to_i,
+      createdAt:  created_at.to_i
+    }
+  end
+
   protected
 
   def generate_affiliate_code

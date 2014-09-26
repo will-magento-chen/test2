@@ -16,6 +16,7 @@ gem 'slim-rails'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'faker'
+gem 'awesome_print'
 gem 'fontawesome-rails'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'angularjs-rails'

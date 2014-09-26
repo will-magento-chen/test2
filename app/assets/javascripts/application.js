@@ -21,4 +21,5 @@
 //= require_directory ./plugins
 //= require angular/bootstrap
 //= require jquery.datetimepicker
+//= require bundle
 //= require_tree .

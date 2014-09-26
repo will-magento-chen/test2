@@ -13,6 +13,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    respond_to do |format|
+      format.json {
+        render json: @event
+      }
+    end
+  end
+
   def new
     @event = Event.new
     @event.country = 'US'
