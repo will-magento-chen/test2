@@ -8,10 +8,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :transfer_session
+  skip_before_action :verify_authenticity_token, if: :json_request?
 
   include ApplicationHelper
 
   protected
+
+  def json_request?
+    request.format.json? || request.format.js?
+  end
+
   def transfer_session
     session_check_url = ENV['BAREFOOT_SESSION_CHECK_URL']
     php_session = request.cookies['PHPSESSID']
