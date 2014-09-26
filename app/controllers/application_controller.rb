@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def json_request?
-    request.format.json? || request.format.js?
+    request.format.json? || request.format.js? || params[:callback]
   end
 
   def transfer_session

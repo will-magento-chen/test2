@@ -16,13 +16,9 @@ class EventsController < ApplicationController
   def show
     respond_to do |format|
       if params[:callback]
-        format.js {
-          render json: @event, callback: params[:callback]
-        }
+        format.js { render json: @event, callback: params[:callback] }
       else
-        format.json {
-          render json: @event
-        }
+        format.json { render json: @event }
       end
     end
   end
