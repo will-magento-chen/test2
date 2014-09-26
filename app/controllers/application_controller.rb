@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def transfer_session
+    headers["Access-Control-Allow-Origin"] = "*"
     session_check_url = ENV['BAREFOOT_SESSION_CHECK_URL']
     php_session = request.cookies['PHPSESSID']
 
