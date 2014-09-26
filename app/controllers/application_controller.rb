@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def transfer_session
-    headers["Access-Control-Allow-Origin"] = "*"
+    headers["Access-Control-Allow-Origin"] = request.referrer.to_s.gsub(/^(https?:\/\/.*?)(\/.*$|$)/, "\\1")
     session_check_url = ENV['BAREFOOT_SESSION_CHECK_URL']
     php_session = request.cookies['PHPSESSID']
 
