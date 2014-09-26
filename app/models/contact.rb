@@ -47,4 +47,19 @@ class Contact < ActiveRecord::Base
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
+  def as_json(options = {})
+    return {
+      id:         id.to_s,
+      name:       full_name,
+      firstName:  first_name,
+      lastName:   last_name,
+      city:       city,
+      state:      state,
+      country:    country,
+      updatedAt:  updated_at.to_i,
+      createdAt:  created_at.to_i
+    }
+  end
+
 end

@@ -26,8 +26,10 @@ class Event < ActiveRecord::Base
 
   def as_json(options = {})
     return {
-      id:     self.id.to_s,
-      name:   self.name,
+      id:         id.to_s,
+      name:       name,
+      eventType:  event_type,
+      host:       host,
       updatedAt:  updated_at.to_i,
       createdAt:  created_at.to_i
     }
