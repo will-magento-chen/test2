@@ -1,0 +1,26 @@
+{
+  "name": "barefootbooks",
+  "description": "",
+  "version": "0.0.1",
+  "private": true,
+  "main": "lib/javascript/index.js",
+  "dependencies": {
+    "uuid": "*",
+    "inherits": "*",
+    "domify": "*",
+    "extend": "*",
+    "jquery": "*",
+    "dot"   : "*",
+    "xhr-browserify": "*",
+    "http-browserify": "*"
+  },
+  "devDependencies": {
+    "reactify":   "*",
+    "browserify": "~5.10.0",
+    "watchify":   "~1.0.2"
+  },
+  "scripts": { 
+    "bundle":   "browserify lib/javascript/browser.js -t reactify -r ./lib/javascript/BarefootBooks.js:barefootbooks -o app/assets/javascripts/bundle.js",
+    "watch-js": "watchify   lib/javascript/browser.js -t reactify -r ./lib/javascript/BarefootBooks.js:barefootbooks -o app/assets/javascripts/bundle.js"
+  }
+}
