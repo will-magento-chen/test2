@@ -30,6 +30,7 @@ class Event < ActiveRecord::Base
       name:       name,
       eventType:  event_type,
       host:       host,
+      affiliateCode: affiliate_code,
       updatedAt:  updated_at.to_i,
       createdAt:  created_at.to_i
     }
