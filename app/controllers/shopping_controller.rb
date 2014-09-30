@@ -6,6 +6,7 @@ class ShoppingController < ApplicationController
       shopping_context = {}
       shopping_context[:address] = params[:address] unless params[:address].blank?
       if @event && params[:order_type] != 'non-event'
+        shopping_context[:id] = @event.id
         shopping_context[:event_code] = @event.affiliate_code
         shopping_context[:event_name] = @event.name
       end
