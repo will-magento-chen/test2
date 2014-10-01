@@ -38,13 +38,45 @@ h1 My Events
     .form-group
       = link_to "Create new event &#9654;".html_safe, new_event_path, class: "btn btn-primary btn-streched"
     .well
-      h2 Quick Search
-      p
-        a
-          b.text-gray-darker View All
-          span.small &raquo;
-      p
-        a.text-gray href="/events?status=active" Active Events
-      p
-        a.text-gray href="/events?status=past" Past Events
+      br
+      / h2 Quick Search
+      / p
+      /   a
+      /     b.text-gray-darker View All
+      /     span.small &raquo;
+      / p
+      /   a.text-gray href="/events?status=active" Active Events
+      / p
+      /   a.text-gray href="/events?status=past" Past Events
+      h4 Event Details
+      .form-group
+        b Event Name
+        p Jane Dos world animal's party
+      .form-group
+        b Type
+        p 
+      .form-group
+        b Host
+        p Jane Dos world animal's party
+      .form-group
+        b Date and Time
+        p Jane Dos world animal's party
+      .form-group
+        b Orders accepted until:
+        p 
+      .form-group
+        b Tracking Code
+        p 
 
+
+      hr
+      h4 Activity 
+      p Orders: 0
+      p Qualifying Volumn: $0.00
+      p Bonus Volumn: $0.00
+
+      hr
+      h4 Host Earnings
+      b Earned this event
+      p Free Gift Credit: $0.00
+      p Qualified Host Gifts: 0
