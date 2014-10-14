@@ -33,11 +33,9 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  padding-bottom: 80px;
+  padding: 30px 20px 80px 20px;
   margin-top: -10px; // accommodate the navbar
   background: white;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 section {

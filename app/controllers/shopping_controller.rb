@@ -3,8 +3,14 @@ class ShoppingController < ApplicationController
   def start
     if request.post?
       # if user clicks 'Start shopping' button, go to personal order cart page
-      if params[:order_type].blank?
-        
+      if params[:order_type] == "personal"
+        cookies.delete(:bf_shop_ctx)
+        cookies[:bf_shop_ctx] = {
+          domain: 'barefootbooks.com', # TODO don't hardcode this
+          expires: 1.day.ago
+        }
+
+        redirect_to magento_url('checkout/cart')
       else
         @event = Event.find(params[:event_id]) if params[:event_id]
         shopping_context = {}
@@ -20,9 +26,9 @@ class ShoppingController < ApplicationController
           value: shopping_context.to_json,
           expires: 1.day.from_now
         }
-      end  
 
-      redirect_to magento_url('checkout/cart')
+        redirect_to add_customer_orders_path(event_id: @event.id)
+      end
     end
   end
 end

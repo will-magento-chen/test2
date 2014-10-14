@@ -1,0 +1,43 @@
+.row
+  .col-sm-3
+    .well
+      h4 Event Details
+      .form-group
+        b Event Name
+        p Masahji's Party
+      .form-group
+        b Type
+        p Barefoot Party
+      .form-group
+        b Host
+        p Kane Upton
+      .form-group
+        b Date and Time
+        p Jane Dos world animal's party
+      .form-group
+        b Orders accepted until:
+        p
+      .form-group
+        b Tracking Code
+        p 527835033-4
+      hr
+
+      h4 Activity
+      p Orders: 0
+      p Qualifying Volumn: $0.00
+      p Bonus Volumn: $0.00
+
+      hr
+
+      h4 Host Earnings
+      b Earned this event
+      p Free Gift Credit: $0.00
+      p Qualified Host Gifts: 0
+
+  .col-sm-9
+    p The customer information entered here will be saved to your contacts
+    = simple_form_for @contact, defaults: { wrapper_html: { class: "col-sm-6" }, input_html: { class: "form-control" }}, input_html: { class: "form-horizontal" } do |f|
+      = render "contacts/form", f: f
+      = f.hidden_field :event_id, value: @event.id
+      = link_to "Cancel", contacts_path, class: "btn btn-default"
+      = f.submit "Add Customer", class: "btn btn-primary"

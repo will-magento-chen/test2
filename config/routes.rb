@@ -7,6 +7,13 @@ Rails.application.routes.draw do
 
   resources :contacts
   resources :events
+  
+  resources :orders do
+    collection do
+      get :add_customer
+    end
+  end
+
   resources :shopping do
     collection do
       get :start

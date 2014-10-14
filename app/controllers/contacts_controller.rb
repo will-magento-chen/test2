@@ -27,12 +27,15 @@ class ContactsController < ApplicationController
       add_children
       respond_to do |format|
         format.json { render json: @contact, status: :created }
-        format.html { redirect_to @contact, notice: "Event has been created successfully" }
+        redirect_url = params[:contact][:event_id].present? ? magento_url('checkout/cart') : contact_path(@contact)
+        format.html { redirect_to redirect_url, notice: "Event has been created successfully" }
       end
     else
       respond_to do |format|
         format.json { render json: @contact.errors.full_messages, status: :unprocessable_entity }
-        format.html { render :new }
+        redirect_url = params[:contact][:event_id].present? ? "orders/add_customer" : :new
+        @event = Event.find(params[:contact][:event_id]) if params[:contact][:event_id].present?
+        format.html { render redirect_url }
       end
     end
   end
@@ -57,7 +60,7 @@ class ContactsController < ApplicationController
 
     @contact.children.destroy_all
     params[:children].each do |child|
-      next if child.name.blank?
+      next if child["name"].blank?
       @contact.children.create(child_params(child))
     end
   end
